@@ -59,7 +59,7 @@ def create_users_table():
 @asynccontextmanager
 async def app_lifespan(app: FastAPI):
     # Startup logic: Creating users table
-    await create_users_table()
+    create_users_table()
     yield
 
 app = FastAPI(lifespan=app_lifespan)
