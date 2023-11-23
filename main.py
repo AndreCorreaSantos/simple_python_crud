@@ -86,6 +86,11 @@ def create_user(name: str, email: str):
     push_logs_to_cloudwatch(f"Create user with name {name} and email {email}")
     return {"name": name, "email": email}
 
+# path for health check
+@app.get("/")
+def get_users():
+    return {"status": "ok"}
+
 @app.get("/users/")
 def get_users():
     connection = create_connection()
